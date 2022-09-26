@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int main()
+{
+	//不可以在for循环体内修改循环变量，防止for循环失去控制
+	//建议for循环的循环体控制变量的取值采用"前闭后开区间"写法
+	int a = 0;
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	for (a = 0; a < 10; a++)
+	//前a=0为闭区间，后a<10为开区间，此处的10同时具备了可读性与'输出打印十个数组元素'的特殊意义，可读性优于(a = 0; a < = 9; a++)
+	{
+		printf("%d", arr[a]);
+	}
+
+	printf("\n");
+	
+	//变种1：
+	int b = 1;
+	for (;;)
+	{
+		while (b != 0)
+		{
+			printf("Please confirm （0/1）：");
+			scanf("%d", &b);
+			if (b == 1)
+			{
+				printf("Type 1 .\n");
+			}
+			else
+			{
+				break;
+			}
+		}
+		printf("Over .\n");
+		break;
+	}
+	
+	return 0;
+}
